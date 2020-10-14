@@ -59,3 +59,7 @@ http://localhost:8000/items
 ```
 * To stop the local web server press `Ctrl+C`
 
+### How run Docker container 
+
+ * Main description about how to run Django projects in docker container you can find [here](https://docs.docker.com/compose/django/)
+ 
