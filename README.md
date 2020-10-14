@@ -27,6 +27,7 @@ Implement __Django + Stripe API backend__ with the following conditions:
 ## Admin panel 
 
 _login_: admin
+
 _password_: admin
 
 ## How to run 
