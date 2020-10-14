@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}
+        {{ title }}
+        {% endblock %}</title>
+</head>
+
+<body>
+    {% block items %}
+    <h9>
+        {% for element in items %}
+        <div class="alert alert-warning mt-2">
+            <h9>
+                <a href="{{ element.get_absolute_url }}">{{ element.name }}</a>
+            </h9>
+            <h9>
+                {{ element.price }} RUB
+            </h9>
+            <br>
+            <p>
+                description:
+                {{ element.description }}
+            </p>
+            {% endfor %}
+    </h9>
+    {% endblock %}
+
+</body>
+
+</html>

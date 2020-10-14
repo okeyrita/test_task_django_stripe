@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Buy Item {% block id %}
+        {{ item.id }}
+        {% endblock %}</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<body>
+    <h1>
+        {% block name %}
+        {{ item.name }}
+        {% endblock %}
+    </h1>
+
+    <h8>
+        Description of
+        {% block name2 %}
+        {{ item.name }}
+        {% endblock %} :
+    </h8>
+    <br>
+    <p>
+        {% block description %}
+        {{ item.description }}
+        {% endblock %}
+    </p>
+    <p> Price:
+        {% block price %}
+        {{ item.price }}
+        {% endblock %}
+        RUB
+    </p>
+    <br>
+    <button id="checkout-button">Buy</button>
+    <script type="text/javascript">
+        var stripe = Stripe('{{ public_sk }}');
+        var checkoutButton = document.getElementById('checkout-button');
+        checkoutButton.addEventListener('click', function () {
+            fetch('{{ item.get_buy_url }}', { method: 'GET' })
+                .then(response => response.json())
+                .then(({ session_id }) => 
+                stripe.redirectToCheckout({ sessionId: session_id }))
+        });
+    </script>
+</body>
+
+</html>
